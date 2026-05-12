@@ -1,3 +1,10 @@
+Todo:
+-----
+add logic to the js file to filter the json results onkeydown, initial filter
+will only work for IS-number (id), but I'd like to look into a fuzzy search both ID and Name
+(a temp workaround could be 2 filter fields, 1 for ID, another for name)
+checkboxes for each containment-echelon, by default all inclusive, unselect to disclude
+
 Used Icons:
 -----------
 font awesome down arrow and up arrow:
