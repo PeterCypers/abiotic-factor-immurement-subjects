@@ -1,0 +1,38 @@
+.arrowbtn{
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+}
+
+main{
+  margin: 1rem;
+}
+
+h3{
+  margin-top: 0px;
+}
+
+img{
+  width: 100%;
+}
+
+.card{
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 10px;
+  max-width: 200px;
+}
+
+.cards-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.card-description{
+  margin-top: 5px;
+}
+
+#filter-container{
+  padding: 10px;
+}

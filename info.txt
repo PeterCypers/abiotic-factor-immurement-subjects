@@ -1,0 +1,112 @@
+Used Icons:
+-----------
+font awesome down arrow and up arrow:
+<i class="fa-solid fa-angle-down"></i>
+<i class="fa-solid fa-angle-up"></i>
+
+initial styling before DOM manipulation:
+----------------------------------------
+
+<div class="cards-container">
+  <!-- card 1 -->
+  <div class="card">
+    <h3 class="card-title">IS 1</h3>
+    <img src="https://picsum.photos/200" alt="lorem picsum random image">
+    <div x-data="{ open: false }">
+        Description
+      <button @click="open = ! open" class="arrowbtn">
+        <i class="fa-solid" :class="open ? 'fa-angle-up' : 'fa-angle-down'"></i>
+      </button>
+      <div x-show="open" @click.outside="open = false">Contents...</div>
+    </div>
+  </div>
+  <!-- card 2 -->
+  <div class="card">
+    <h3 class="card-title">IS 2</h3>
+    <img src="https://picsum.photos/200" alt="lorem picsum random image">
+    <div x-data="{ open: false }">
+        Description
+      <button @click="open = ! open" class="arrowbtn">
+        <i class="fa-solid" :class="open ? 'fa-angle-up' : 'fa-angle-down'"></i>
+      </button>
+      <div x-show="open" @click.outside="open = false">Contents...</div>
+    </div>
+  </div>
+  <!-- card 3 -->
+  <div class="card">
+    <h3 class="card-title">IS 3</h3>
+    <img src="https://picsum.photos/200" alt="lorem picsum random image">
+    <div x-data="{ open: false }">
+        Description
+      <button @click="open = ! open" class="arrowbtn">
+        <i class="fa-solid" :class="open ? 'fa-angle-up' : 'fa-angle-down'"></i>
+      </button>
+      <div x-show="open" @click.outside="open = false">Contents...</div>
+    </div>
+  </div>
+</div>
+
+QuerySelectors:
+---------------
+Echelon:
+--------
+document.querySelectorAll('tbody tr').forEach(tr => {
+  const id = tr.querySelector('td:nth-child(1) a')?.textContent.trim();
+  const echelon = tr.querySelector('td:nth-child(2)')?.textContent.trim();
+  console.log(id, echelon);
+});
+
+Classification:
+---------------
+document.querySelectorAll('tbody tr').forEach(tr => {
+  const id = tr.querySelector('td:nth-child(1) a')?.textContent.trim();
+  const classification = tr.querySelector('td:nth-child(3)')?.textContent.trim();
+  console.log(id, classification);
+});
+
+Name:
+-----
+document.querySelectorAll('tbody tr').forEach(tr => {
+  const id = tr.querySelector('td:nth-child(1) a')?.textContent.trim();
+  const aka = tr.querySelector('td:nth-child(4)')?.textContent.trim();
+  console.log(id, aka);
+});
+
+Description:
+------------
+document.querySelectorAll('tbody tr').forEach(tr => {
+  const id = tr.querySelector('td:nth-child(1) a')?.textContent.trim();
+  const description = tr.querySelector('td:nth-child(5)')?.textContent.trim();
+  console.log(id, description);
+});
+
+
+All-in-one super-scraper: (with copy-to-clipboard timeout workaround)
+-------------------------
+setTimeout(() => {
+  const results = [];
+  document.querySelectorAll('tbody tr').forEach(tr => {
+    const id = tr.querySelector('td:nth-child(1) a')?.textContent.trim();
+    const echelon = tr.querySelector('td:nth-child(2)')?.textContent.trim();
+    const classification = tr.querySelector('td:nth-child(3)')?.textContent.trim();
+    const name = tr.querySelector('td:nth-child(4)')?.textContent.trim();
+    const description = tr.querySelector('td:nth-child(5)')?.textContent.trim();
+    if (id) results.push(`subject-id: ${id}, containment-echelon: ${echelon}, classification: ${classification}, name: ${name}, description: ${description}`);
+  });
+  navigator.clipboard.writeText(results.join('\n'));
+}, 3000);
+
+
+IS without Images: (use Img not available or REDACTED)
+------------------
+no image:
+---------
+IS-0012
+IS-0078
+IS-0333
+
+REDACTED:
+---------
+IS-0113
+IS-0151
+IS-0221
