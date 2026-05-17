@@ -6,6 +6,7 @@
   <title>Immurement-Subjects</title>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="shortcut icon" href="img/Icon_slowhealer_rounded.png" type="image/x-icon">
 </head>
 <body>
   <main>
@@ -18,54 +19,10 @@
       <small><i>(Filter IS by number)</i></small>
     </div>
 
-
-
-    <div class="cards-container">
-      <!-- card 1 -->
-      <div class="card">
-        <h3 class="card-title">IS 1</h3>
-        <img src="https://picsum.photos/200" alt="lorem picsum random image">
-        <div x-data="{ open: false }">
-            Description
-          <button @click="open = ! open" class="arrowbtn">
-            <i class="fa-solid" :class="open ? 'fa-angle-up' : 'fa-angle-down'"></i>
-          </button>
-          <div x-show="open" @click.outside="open = false" class="card-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus culpa quas ea iure minus? Earum corrupti non consequatur nihil provident molestias aliquid illum, atque minima, sit dolorum qui odio accusantium.</div>
-        </div>
-      </div>
-      <!-- card 2 -->
-      <div class="card">
-        <h3 class="card-title">IS 2</h3>
-        <img src="https://picsum.photos/200" alt="lorem picsum random image">
-        <div x-data="{ open: false }">
-            Description
-          <button @click="open = ! open" class="arrowbtn">
-            <i class="fa-solid" :class="open ? 'fa-angle-up' : 'fa-angle-down'"></i>
-          </button>
-          <div x-show="open" @click.outside="open = false">Contents...</div>
-        </div>
-      </div>
-      <!-- card 3 -->
-      <div class="card">
-        <h3 class="card-title">IS 3</h3>
-        <img src="https://picsum.photos/200" alt="lorem picsum random image">
-        <div x-data="{ open: false }">
-            Description
-          <button @click="open = ! open" class="arrowbtn">
-            <i class="fa-solid" :class="open ? 'fa-angle-up' : 'fa-angle-down'"></i>
-          </button>
-          <div x-show="open" @click.outside="open = false">Contents...</div>
-        </div>
-      </div>
+    <div id="cards-container">
+      <!-- Cards generated here -->
     </div>
-
-
-
   </main>
-
-
-
-
 
   <script src="//unpkg.com/alpinejs" defer></script>
   <script src="js/main.js"></script>

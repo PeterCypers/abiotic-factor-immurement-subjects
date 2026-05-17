@@ -6,7 +6,7 @@
     "classification": "Regent style top hat",
     "name": "The Unwearable Hat",
     "description": "Gives the wearer an overwhelming compulsion to remove the hat from their head.",
-    "imgPath": ""
+    "imgPath": "img/IS-0003.png"
   },
   {
     "id": "2",
@@ -15,7 +15,7 @@
     "classification": "Mineral",
     "name": "Glowing Shard",
     "description": "A bright glowing gem. Personnel are advised not to stare at the shard during nocturnal hours. All experimentation requires a strict release form.",
-    "imgPath": ""
+    "imgPath": "img/IS-0010.png"
   },
   {
     "id": "3",
@@ -33,7 +33,7 @@
     "classification": "Habitat",
     "name": "Tub of Blood",
     "description": "A large metal tub of blood. Releases an aggressive humanoid entity during the night.",
-    "imgPath": ""
+    "imgPath": "img/IS-0013.png"
   },
   {
     "id": "5",
@@ -42,7 +42,7 @@
     "classification": "Ceramic Artifact",
     "name": "Time Brake",
     "description": "Slows time locally in a range of 3 feet, getting progressively stronger the closer an object gets.",
-    "imgPath": ""
+    "imgPath": "img/IS-0014.png"
   },
   {
     "id": "6",
@@ -51,7 +51,7 @@
     "classification": "C-Hazard",
     "name": "Amnesia Threshold",
     "description": "A doorway that removes anywhere from days to years of a person's memory. Constructed from re-used ship materials.",
-    "imgPath": ""
+    "imgPath": "img/IS-0017.png"
   },
   {
     "id": "7",
@@ -60,7 +60,7 @@
     "classification": "Victorian furnishing",
     "name": "The Red Chair",
     "description": "A chair that transports the user to Anteverse 19. Formerly in possession of Aleister Crowley.",
-    "imgPath": ""
+    "imgPath": "img/IS-0018.png"
   },
   {
     "id": "8",
@@ -69,7 +69,7 @@
     "classification": "Lifeform",
     "name": "Darkwater Beast",
     "description": "Aquatic in nature and repelled by radiation in the x-ray range. Originates from Anteverse 42.",
-    "imgPath": ""
+    "imgPath": "img/IS-0023.png"
   },
   {
     "id": "9",
@@ -78,7 +78,7 @@
     "classification": "Infinite Anteverse",
     "name": "The Library",
     "description": "A library that contains every possible permutations of a book.",
-    "imgPath": ""
+    "imgPath": "img/IS-0028.png"
   },
   {
     "id": "10",
@@ -87,7 +87,7 @@
     "classification": "Anteverse",
     "name": "The Pool Room",
     "description": "IS-0031 is off-limits to all GATE personnel, unless accompanied by tactical TR teams equipped in accordance with manifest GCRF-ISP-0018A, including IR and low-light observation equipment, or approved Gatekeeper staff. Hydrophobic protective wear is encouraged and, pursuant to GISP3.2 provisions, all returning persons must submit to full-spectrum decontamination until further notice.",
-    "imgPath": ""
+    "imgPath": "img/IS-0031.png"
   },
   {
     "id": "11",
@@ -96,7 +96,7 @@
     "classification": "Unknown Entity",
     "name": "The Lost Dog",
     "description": "A dog that appears in 13 oil paintings of the nymph Callisto. The dog is not found in any of the original sketches of the paintings.",
-    "imgPath": ""
+    "imgPath": "img/IS-0042.png"
   },
   {
     "id": "12",
@@ -105,7 +105,7 @@
     "classification": "Relativistic Object",
     "name": "Gravity Dampener",
     "description": "Reduces gravity in a localized area. Keep away from perforations and gravitationally sensitive equipment.",
-    "imgPath": ""
+    "imgPath": "img/IS-0052.png"
   },
   {
     "id": "13",
