@@ -5,7 +5,6 @@ const CARD_CONTAINER = document.getElementById("cards-container");
 const REDACTED_IMG_PATH = "img/imageRedacted.webp";
 const RESETBTN = document.getElementById("resetfilterbtn");
 
-
 /**
  * attempt at parsing the source data...
  * ended up using Claude to convert the source to json
@@ -65,7 +64,7 @@ function filterData(filtervalue) {
  * happens whenever the page is refreshed
  */
 async function fetchIsData() {
-  const response = await fetch('http://127.0.0.1:5500/data/is-data.json');
+  const response = await fetch('data/is-data.json');
   IS = await response.json();
 
   showAllImages();
@@ -101,7 +100,7 @@ function makeCardElement(subject) {
       </button>
       <div x-show="open" @click.outside="open = false" class="card-description">
         <strong>Classification:</strong> ${subject.classification}<br>
-        
+
       </div>
     </div>`);
 
@@ -121,7 +120,6 @@ function showAllImages() {
     CARD_CONTAINER.insertAdjacentElement("beforeend", card); // append inside flex-container
   });
 }
-
 
 // todo: forEach over the filtered list, sending each json obj to makeCardElement,
 // beforeEnd appending the returned card inside the flex container
@@ -154,20 +152,4 @@ async function init() {
   };
 };
 
-
 window.onload = init;
-
-
-/*todo:
-
-filter() — takes a callback, returns a new array with only the elements where the callback returns true. Does not mutate the original. This is your main tool here.
-map() — takes a callback, returns a new array of the same length but with each element transformed. Does not mutate. Useful for turning your data objects into DOM elements.
-forEach() — like map but returns nothing. It's purely for side effects (like appending things to the DOM). Does not mutate the array itself, but you'd typically use it when you want to cause side effects.
-find() — returns the first matching element, not an array. Does not mutate.
-sort() — this one is the odd one out: it mutates in place and returns the same array. Worth knowing because it can surprise you.
-
-Putting it together conceptually
-Your flow on each keystroke would be: take the original list → run filter() on it with logic that checks if the item matches the input value → that gives you a fresh filtered list → then use forEach() or map() to generate and insert DOM elements from that filtered list.
-The DOM manipulation part is separate from the filtering — filtering is pure data work, DOM generation is the side-effect step at the end.
-Does any part of that you want to dig into further?
- */
