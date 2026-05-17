@@ -39,7 +39,7 @@ function makeCardElement(subject) {
 
   card.insertAdjacentHTML("beforeend", `<h3 id="${subject.id}" class="card-title">${subject["subject-id"]}</h3>`);
   card.insertAdjacentHTML("beforeend", `<img src="${subject.imgPath.includes("redact")? REDACTED_IMG_PATH: subject.imgPath? subject.imgPath: MISSING_IMG_PATH}" alt="image of ${subject["subject-id"]}">`);
-  card.insertAdjacentHTML("beforeend", `<h3 id="${subject.id}" class="card-name">${subject.name}</h3>`);
+  card.insertAdjacentHTML("beforeend", `<h3 id="${subject.name}" class="card-name">${subject.name}</h3>`);
   card.insertAdjacentHTML("beforeend",
     `<div x-data="{ open: false }">
         Description
@@ -92,7 +92,7 @@ function toHTML() {
 
 async function init() {
   // get all the IS and store them
-  fetchIsData();
+  await fetchIsData();
   // console.log(IS); // debug
 
   // this works because the list is short, but for longer lists other method should be considered:
