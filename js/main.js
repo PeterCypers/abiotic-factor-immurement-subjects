@@ -5,6 +5,8 @@ const CARD_CONTAINER = document.getElementById("cards-container");
 const REDACTED_IMG_PATH = "img/imageRedacted.webp";
 const MISSING_IMG_PATH = "img/image_missing_badge_square.svg";
 const RESETBTN = document.getElementById("resetfilterbtn");
+const INFOPAGEBTN = document.getElementById("infoPageBtn");
+const LOCALSTORAGE = localStorage;
 
 // filter the original list(IS) and store the filtered data in 'filtered'
 function filterData(filtervalue) {
@@ -12,7 +14,10 @@ function filterData(filtervalue) {
     filtered = IS;
     return;
   }
-  filtered = IS.filter((subject) => subject["subject-id"].includes(filtervalue));
+  // case-insensitive
+  filtered = IS.filter((subject) => 
+    subject["subject-id"].toLowerCase().includes(filtervalue.toLowerCase()) ||
+    subject.name.toLowerCase().includes(filtervalue.toLowerCase()));
 }
 
 /**
@@ -23,7 +28,13 @@ async function fetchIsData() {
   const response = await fetch('data/is-data.json');
   IS = await response.json();
 
-  showAllImages();
+  if(FILTER_INPUT == ""){
+    showAllImages();
+  } else {
+    // feature: checking IS-info-page and returning to active filter
+    filterData(FILTER_INPUT.value);
+    toHTML();
+  }
 }
 
 /**
@@ -36,6 +47,27 @@ function makeCardElement(subject) {
   const card = document.createElement("div");
   card.classList.add("card");
   card.id = `card${subject.id}`;
+
+  // set color based on Echelon
+  // echelon split into parts, example: Crucis (AG/IN) -> Crucis + (AG/IN)
+  const [echelonStart, echelonEnd] = subject["containment-echelon"].split(" ");
+
+  let color = "";
+  switch (echelonStart) {
+    case "Jura":  color = "t-gray";
+      break;
+    case "Solutus": color = "t-purple";
+      break;
+    case "Thela": color = "t-red";
+      break;
+    case "Crucis": color = "t-yellow";
+      break;
+    case "Sanc": color = "t-blue";
+      break;
+    case "Ordo": color = "t-green";
+      break;
+    default: color = "";
+  }
 
   card.insertAdjacentHTML("beforeend", `<h3 id="${subject.id}" class="card-title">${subject["subject-id"]}</h3>`);
   card.insertAdjacentHTML("beforeend", `<img src="${subject.imgPath.includes("redact")? REDACTED_IMG_PATH: subject.imgPath? subject.imgPath: MISSING_IMG_PATH}" alt="image of ${subject["subject-id"]}">`);
@@ -56,7 +88,7 @@ function makeCardElement(subject) {
       </button>
       <div x-show="open" @click.outside="open = false" class="card-description">
         <strong>Classification:</strong> ${subject.classification}<br>
-        <strong>Containment Echelon:</strong> ${subject["containment-echelon"]}<br>
+        <strong>Containment Echelon:</strong> <span class="${color}">${echelonStart}</span> ${echelonEnd}<br>
       </div>
     </div>`);
 
@@ -90,27 +122,49 @@ function toHTML() {
 
 }
 
+// feature: checking IS-info-page and returning to active filter
+function getFilterInput() {
+  if(LOCALSTORAGE.getItem("immurementsubjectfilter")) {
+    FILTER_INPUT.value = LOCALSTORAGE.getItem("immurementsubjectfilter")
+  }
+}
+// feature: checking IS-info-page and returning to active filter
+function setFilterInput(filterValue) {
+  LOCALSTORAGE.setItem("immurementsubjectfilter", filterValue);
+}
+
 async function init() {
+  getFilterInput();
   // get all the IS and store them
   await fetchIsData();
   // console.log(IS); // debug
 
   // this works because the list is short, but for longer lists other method should be considered:
   // only updating the view on pause of typing, instead of every keystroke when listsize n is sufficiently large
-  FILTER_INPUT.addEventListener("keyup", function() {
+  FILTER_INPUT.addEventListener("keyup", function(e) {
+    // close keyboard on mobile:
+    if (e.key === "Enter"){
+      FILTER_INPUT.blur();
+    }
+    setFilterInput(this.value);
     filterData(this.value);
     toHTML();
   });
 
   RESETBTN.onclick = () => {
     FILTER_INPUT.value = "";
-    FILTER_INPUT.focus();
+    setFilterInput("");
+    // FILTER_INPUT.focus(); // not fun
     showAllImages();
+  };
+
+  INFOPAGEBTN.onclick = () => {
+    navigation.navigate("/extraInfoPage.html"); // this is new since 2026 (not supported by all browsers yet...)
+    // location.href = "/extraInfoPage.html"; // works on older browsers
   };
 };
 
 window.onload = init;
-
 
 
 /**************************************************************************************/

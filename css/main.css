@@ -44,3 +44,73 @@ img{
 .mt-2{
   margin-top: 1rem;
 }
+.fa-biohazard{
+  scale: 150%;
+  padding: 10px;
+}
+#filter-extras-container{
+  display: flex;
+}
+#infoPageBtn,
+#homePageBtn{
+  /* padding: 10px; */
+  border-radius: 10px;
+}
+#infoPageBtnContainer{
+  margin-top: 10px;
+
+  margin-left: 50px;
+}
+
+@media (max-width: 400px) {
+  #infoPageBtnContainer{
+  margin-left: 15px;
+  }
+}
+#homePageBtnContainer{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#tableContainer{
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+table, th, td{
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+th, td{
+  padding: 10px;
+  background-color: aliceblue;
+  text-align: center;
+}
+.t-gray{
+  color: gray;
+  font-weight: bold;
+}
+.t-purple{
+  color: mediumorchid;
+  font-weight: bold;
+}
+.t-red{
+  color: red;
+  font-weight: bold;
+}
+.t-yellow{
+  color: goldenrod;
+  font-weight: bold;
+}
+.t-blue{
+  color: dodgerblue;
+  font-weight: bold;
+}
+.t-green{
+  color: limegreen;
+  font-weight: bold;
+}
+td>img{
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+}
