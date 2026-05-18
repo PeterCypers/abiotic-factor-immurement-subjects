@@ -159,7 +159,7 @@ async function init() {
   };
 
   INFOPAGEBTN.onclick = () => {
-    navigation.navigate("/extraInfoPage.html"); // this is new since 2026 (not supported by all browsers yet...)
+    navigation.navigate("/extraInfoPage"); // this is new since 2026 (not supported by all browsers yet...)
     // location.href = "/extraInfoPage.html"; // works on older browsers
   };
 };
