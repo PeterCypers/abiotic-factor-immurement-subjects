@@ -166,7 +166,6 @@ async function init() {
 
 window.onload = init;
 
-
 /**************************************************************************************/
 /**
  * attempt at parsing the source data...
