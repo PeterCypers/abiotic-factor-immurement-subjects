@@ -154,7 +154,7 @@ async function init() {
   RESETBTN.onclick = () => {
     FILTER_INPUT.value = "";
     setFilterInput("");
-    // FILTER_INPUT.focus(); // not fun
+    // FILTER_INPUT.focus(); // not fun 
     showAllImages();
   };
 
